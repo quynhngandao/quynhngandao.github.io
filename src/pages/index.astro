@@ -2,7 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/Header.astro';
 import Hero from '@/components/Hero.astro';
-import Footer from '@/components/Footer.astro';
+import Contact from '@/components/Contact.astro';
 ---
 
 <Layout>
@@ -10,25 +10,62 @@ import Footer from '@/components/Footer.astro';
   <main>
     <Hero />
 
-    <section id="about" class="flex min-h-screen items-center justify-center bg-amber-950">
+    <section id="about" class="relative flex min-h-screen items-center justify-center">
       <h2 class="text-4xl font-bold text-amber-200">about me page</h2>
+      <a
+        href="#project"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-amber-200/50 transition-colors hover:text-amber-200/80"
+        aria-label="Next section"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </a>
     </section>
 
-    <section id="project" class="flex min-h-screen items-center justify-center bg-indigo-950">
+    <section id="project" class="relative flex min-h-screen items-center justify-center">
       <h2 class="text-4xl font-bold text-indigo-200">project page</h2>
+      <a
+        href="#experience"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-indigo-200/50 transition-colors hover:text-indigo-200/80"
+        aria-label="Next section"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </a>
     </section>
 
-    <section id="experience" class="flex min-h-screen items-center justify-center bg-emerald-950">
+    <section id="experience" class="relative flex min-h-screen items-center justify-center">
       <h2 class="text-4xl font-bold text-emerald-200">experience page</h2>
+      <a
+        href="#photography"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-emerald-200/50 transition-colors hover:text-emerald-200/80"
+        aria-label="Next section"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </a>
     </section>
 
-    <section id="photography" class="flex min-h-screen items-center justify-center bg-rose-950">
+    <section id="photography" class="relative flex min-h-screen items-center justify-center">
       <h2 class="text-4xl font-bold text-rose-200">photography page</h2>
+      <a
+        href="#contact"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-rose-200/50 transition-colors hover:text-rose-200/80"
+        aria-label="Next section"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </a>
     </section>
 
-    <section id="contact" class="flex min-h-screen items-center justify-center bg-violet-950">
-      <h2 class="text-4xl font-bold text-violet-200">contact me page</h2>
-    </section>
+    <Contact />
   </main>
-  <Footer />
 </Layout>

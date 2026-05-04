@@ -1,57 +1,155 @@
 ---
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Project', href: '#project' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Photography', href: '#photography' },
-  { label: 'Contact Me', href: '#contact' },
+  { label: 'about me', href: '#about' },
+  { label: 'portfolio', href: '#project' },
+  { label: 'experience', href: '#experience' },
+  { label: 'photography', href: '#photography' },
 ];
 ---
 
-<header class="border-white/10 fixed inset-x-0 top-0 z-50 border-b bg-black/20 backdrop-blur-sm">
-  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href="/" class="logo text-white transition-opacity hover:opacity-80"> Quynh Dao </a>
+<header class="fixed inset-x-0 top-0 z-50">
+  <div class="bg-white/5 absolute inset-x-0 top-0 h-full backdrop-blur-md"></div>
 
-    <!-- Desktop nav -->
+  <nav class="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
+    <!-- Logo -->
+    <a href="/" class="nav-logo text-white transition-opacity hover:opacity-70"> Quynh Dao </a>
+
+    <!-- Desktop nav links -->
     <ul class="hidden items-center gap-8 md:flex">
       {
         navLinks.map(({ label, href }) => (
           <li>
-            <a href={href} class="nav-link text-white/70 transition-colors hover:text-white">
+            <a
+              href={href}
+              data-nav-link
+              class="nav-link text-white/60 relative transition-colors hover:text-white"
+            >
               {label}
+              <span class="nav-underline absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-white transition-transform duration-200" />
             </a>
           </li>
         ))
       }
     </ul>
 
-    <!-- Mobile menu trigger (pure CSS) -->
-    <input type="checkbox" id="menu-toggle" class="peer hidden" />
-    <label
-      for="menu-toggle"
-      class="text-white/70 cursor-pointer hover:text-white md:hidden"
-      aria-label="Toggle menu"
+    <!-- Desktop contact button -->
+    <a
+      href="#contact"
+      class="nav-contact hidden rounded-full bg-white px-5 py-2 text-navy-cloud transition-transform hover:-translate-y-0.5 md:inline-flex"
     >
-      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </label>
+      contact me
+    </a>
 
-    <!-- Mobile dropdown -->
-    <div
-      class="border-white/10 absolute inset-x-0 top-full hidden flex-col gap-5 border-b bg-black/80 px-6 py-4 backdrop-blur-sm peer-checked:flex md:hidden"
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-btn"
+      class="text-white/70 flex cursor-pointer flex-col gap-1.5 hover:text-white md:hidden"
+      aria-label="Toggle menu"
+      aria-expanded="false"
     >
-      {
-        navLinks.map(({ label, href }) => (
-          <a href={href} class="nav-link text-white/80 transition-colors hover:text-white">
-            {label}
-          </a>
-        ))
-      }
-    </div>
+      <span class="hamburger-bar block h-px w-5 bg-current transition-all duration-300"></span>
+      <span class="hamburger-bar block h-px w-5 bg-current transition-all duration-300"></span>
+      <span class="hamburger-bar block h-px w-5 bg-current transition-all duration-300"></span>
+    </button>
   </nav>
+
+  <!-- Mobile dropdown -->
+  <div
+    id="mobile-menu"
+    class="bg-navy/95 hidden flex-col gap-4 px-[6vw] py-6 backdrop-blur-md md:hidden"
+  >
+    {
+      navLinks.map(({ label, href }) => (
+        <a href={href} class="nav-link text-white/80 transition-colors hover:text-white">
+          {label}
+        </a>
+      ))
+    }
+    <a
+      href="#contact"
+      class="nav-contact mt-2 inline-flex w-fit rounded-full bg-white px-5 py-2 text-navy-cloud transition-transform hover:-translate-y-0.5"
+    >
+      contact me
+    </a>
+  </div>
 </header>
+
+<style>
+  .nav-logo {
+    font-size: clamp(1rem, 0.85rem + 0.6vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-link {
+    font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-link.active {
+    color: white;
+  }
+
+  .nav-link.active .nav-underline {
+    transform: scaleX(1);
+  }
+
+  .nav-contact {
+    font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    font-weight: 600;
+  }
+
+  /* Hamburger → X animation */
+  #menu-btn[aria-expanded='true'] .hamburger-bar:nth-child(1) {
+    transform: translateY(5.5px) rotate(45deg);
+  }
+  #menu-btn[aria-expanded='true'] .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-btn[aria-expanded='true'] .hamburger-bar:nth-child(3) {
+    transform: translateY(-5.5px) rotate(-45deg);
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const btn = document.getElementById('menu-btn')!;
+  const menu = document.getElementById('mobile-menu')!;
+
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    menu.classList.toggle('hidden');
+    menu.classList.toggle('flex');
+  });
+
+  // Close mobile menu when a link is clicked
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      btn.setAttribute('aria-expanded', 'false');
+      menu.classList.add('hidden');
+      menu.classList.remove('flex');
+    });
+  });
+
+  // Active nav link via IntersectionObserver
+  const sections = document.querySelectorAll<HTMLElement>('section[id]');
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            const active = link.getAttribute('href') === `#${entry.target.id}`;
+            link.classList.toggle('active', active);
+          });
+        }
+      });
+    },
+    { rootMargin: '-40% 0px -55% 0px' }
+  );
+
+  sections.forEach((s) => observer.observe(s));
+</script>
