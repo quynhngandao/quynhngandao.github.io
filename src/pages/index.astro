@@ -2,6 +2,9 @@
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/Header.astro';
 import Hero from '@/components/Hero.astro';
+import About from '@/components/About.astro';
+import Photography from '@/components/Photography.astro';
+import Skills from '@/components/Skills.astro';
 import Contact from '@/components/Contact.astro';
 ---
 
@@ -9,26 +12,16 @@ import Contact from '@/components/Contact.astro';
   <Header />
   <main>
     <Hero />
+    <About />
 
-    <section id="about" class="relative flex min-h-screen items-center justify-center">
-      <h2 class="text-4xl font-bold text-amber-200">about me page</h2>
-      <a
-        href="#project"
-        class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-amber-200/50 transition-colors hover:text-amber-200/80"
-        aria-label="Next section"
-      >
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
-          ></path>
-        </svg>
-      </a>
-    </section>
-
-    <section id="project" class="relative flex min-h-screen items-center justify-center">
+    <section
+      id="project"
+      class="sky-section-gradient relative flex min-h-screen items-center justify-center"
+    >
       <h2 class="text-4xl font-bold text-indigo-200">project page</h2>
       <a
         href="#experience"
-        class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-indigo-200/50 transition-colors hover:text-indigo-200/80"
+        class="absolute inset-x-0 bottom-8 flex animate-bounce justify-center text-indigo-200/50 transition-colors hover:text-indigo-200/80"
         aria-label="Next section"
       >
         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -38,11 +31,14 @@ import Contact from '@/components/Contact.astro';
       </a>
     </section>
 
-    <section id="experience" class="relative flex min-h-screen items-center justify-center">
+    <section
+      id="experience"
+      class="sky-section-gradient relative flex min-h-screen items-center justify-center"
+    >
       <h2 class="text-4xl font-bold text-emerald-200">experience page</h2>
       <a
-        href="#photography"
-        class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-emerald-200/50 transition-colors hover:text-emerald-200/80"
+        href="#skills"
+        class="absolute inset-x-0 bottom-8 flex animate-bounce justify-center text-emerald-200/50 transition-colors hover:text-emerald-200/80"
         aria-label="Next section"
       >
         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,19 +48,9 @@ import Contact from '@/components/Contact.astro';
       </a>
     </section>
 
-    <section id="photography" class="relative flex min-h-screen items-center justify-center">
-      <h2 class="text-4xl font-bold text-rose-200">photography page</h2>
-      <a
-        href="#contact"
-        class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-rose-200/50 transition-colors hover:text-rose-200/80"
-        aria-label="Next section"
-      >
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
-          ></path>
-        </svg>
-      </a>
-    </section>
+    <Skills />
+
+    <Photography />
 
     <Contact />
   </main>

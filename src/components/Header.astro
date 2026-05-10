@@ -3,6 +3,7 @@ const navLinks = [
   { label: 'about me', href: '#about' },
   { label: 'portfolio', href: '#project' },
   { label: 'experience', href: '#experience' },
+  { label: 'skills', href: '#skills' },
   { label: 'photography', href: '#photography' },
 ];
 ---
@@ -12,7 +13,26 @@ const navLinks = [
 
   <nav class="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
     <!-- Logo -->
-    <a href="/" class="nav-logo text-white transition-opacity hover:opacity-70"> Quynh Dao </a>
+    <a
+      href="/"
+      class="nav-logo inline-flex items-center gap-2 whitespace-nowrap text-white transition-all duration-200 hover:-translate-y-0.5 hover:opacity-70 focus-visible:-translate-y-0.5"
+    >
+      Quynh Dao
+      <svg
+        class="h-[1.5em] w-[1.5em] animate-bounce"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M8 9 4 12l4 3"></path>
+        <path d="m16 9 4 3-4 3"></path>
+        <path d="m14 4-4 16"></path>
+      </svg>
+    </a>
 
     <!-- Desktop nav links -->
     <ul class="hidden items-center gap-8 md:flex">
