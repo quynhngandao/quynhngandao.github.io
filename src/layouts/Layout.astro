@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css';
+import FloatingBubbles from '@/components/FloatingBubbles.astro';
 
 interface Props {
   title?: string;
@@ -39,6 +40,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
   </head>
   <body class="bg-sky font-sans text-gray-100 antialiased">
+    <FloatingBubbles />
     <slot />
   </body>
 </html>

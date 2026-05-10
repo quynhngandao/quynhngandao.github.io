@@ -1,4 +1,6 @@
 ---
+import '@/styles/skills.css';
+
 interface TechItem {
   id: number;
   title: string;
@@ -39,43 +41,47 @@ const techStack: TechItem[] = [
 
 <section
   id="skills"
-  class="sky-section-gradient relative flex min-h-screen flex-col items-center justify-center py-24 px-4"
+  class="sky-section-gradient relative px-4 py-20 md:px-8 md:py-28 pb-24"
 >
-  <h2 class="mb-10 text-center text-2xl font-bold uppercase tracking-widest text-white drop-shadow">
-    Skills
-  </h2>
+  <div class="mx-auto w-full space-y-8">
 
-  <!-- Filter buttons -->
-  <div class="mb-10 flex flex-wrap justify-center gap-3">
-    {categories.map((cat, i) => (
-      <button
-        class={`skills-filter-btn${i === 0 ? ' active' : ''}`}
-        data-filter={cat.toLowerCase()}
-      >
-        {cat}
-      </button>
-    ))}
-  </div>
+    <h2 class="text-center text-3xl font-extrabold uppercase tracking-widest md:text-4xl" style="color: #04285f">
+      Skills
+    </h2>
 
-  <!-- Tech card grid -->
-  <div class="mx-auto w-full max-w-6xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-    {techStack.map((tech) => (
-      <div
-        class="tech-card bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 p-6 flex flex-col items-center text-center"
-        data-category={tech.category.toLowerCase()}
-      >
-        <img
-          src={tech.icon}
-          alt={tech.title}
-          width="64"
-          height="64"
-          class="mb-4 h-16 w-16 object-contain"
-          loading="lazy"
-        />
-        <h3 class="mb-1 text-sm font-bold leading-tight" style="color: #245f9c">{tech.title}</h3>
-        <p class="text-xs" style="color: #9e9d9c">{tech.description}</p>
-      </div>
-    ))}
+    <!-- Filter buttons -->
+    <div class="flex flex-wrap justify-center gap-3">
+      {categories.map((cat, i) => (
+        <button
+          class={`skills-filter-btn${i === 0 ? ' active' : ''}`}
+          data-filter={cat.toLowerCase()}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <!-- Tech card grid -->
+    <div class="w-full flex flex-wrap justify-center gap-5 md:gap-6">
+      {techStack.map((tech) => (
+        <div
+          class="tech-card group rounded-2xl p-8 flex flex-col items-center text-center w-[calc(50%-10px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-18px)] xl:w-[calc(20%-20px)]"
+          data-category={tech.category.toLowerCase()}
+        >
+          <img
+            src={tech.icon}
+            alt={tech.title}
+            width="80"
+            height="80"
+            class="mb-5 h-20 w-20 object-contain transition-transform duration-300 group-hover:scale-110"
+            loading="lazy"
+          />
+          <h3 class="mb-1 text-base font-bold leading-tight" style="color: #04285f">{tech.title}</h3>
+          <p class="text-sm" style="color: #245f9c; opacity: 0.7">{tech.description}</p>
+        </div>
+      ))}
+    </div>
+
   </div>
 
   <!-- Scroll cue -->
@@ -90,50 +96,49 @@ const techStack: TechItem[] = [
   </a>
 </section>
 
-<style is:global>
-  .skills-filter-btn {
-    padding: 0.375rem 1.25rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(36, 95, 156, 0.25);
-    background: white;
-    color: #245f9c;
-    font-size: 0.875rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
-    font-family: 'Sora', system-ui, sans-serif;
-  }
-  .skills-filter-btn.active {
-    background: #245f9c;
-    color: white;
-    border-color: #245f9c;
-  }
-  .skills-filter-btn:not(.active):hover {
-    background: rgba(255, 255, 255, 0.85);
-  }
-  .tech-card.hidden {
-    display: none;
-  }
-</style>
 
 <script>
   const buttons = document.querySelectorAll<HTMLButtonElement>('.skills-filter-btn');
   const cards = document.querySelectorAll<HTMLElement>('.tech-card');
+  const DURATION = 350;
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter ?? 'all';
-
       buttons.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
 
+      const toShow: HTMLElement[] = [];
+      const toHide: HTMLElement[] = [];
+
       cards.forEach((card) => {
         const cat = card.dataset.category ?? '';
-        if (filter === 'all' || cat === filter) {
-          card.classList.remove('hidden');
-        } else {
+        const shouldShow = filter === 'all' || cat === filter;
+        const isHidden = card.classList.contains('hidden');
+        if (shouldShow && isHidden) toShow.push(card);
+        else if (!shouldShow && !isHidden) toHide.push(card);
+      });
+
+      // Phase 1: animate out
+      toHide.forEach((card) => {
+        card.classList.add('is-hiding');
+        setTimeout(() => {
           card.classList.add('hidden');
-        }
+          card.classList.remove('is-hiding');
+        }, DURATION);
+      });
+
+      // Phase 2: animate in after exits finish
+      toShow.forEach((card) => {
+        setTimeout(() => {
+          card.classList.add('is-entering');
+          card.classList.remove('hidden');
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              card.classList.remove('is-entering');
+            });
+          });
+        }, toHide.length ? DURATION : 0);
       });
     });
   });

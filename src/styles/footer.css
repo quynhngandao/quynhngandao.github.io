@@ -1,0 +1,42 @@
+.footer-container {
+  position: relative;
+}
+
+.clouds-bg {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(250, 251, 251, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(250, 251, 251, 0.88);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(250, 251, 251, 0.32);
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+}
+
+.website-rights {
+  font-size: clamp(0.8rem, 0.76rem + 0.15vw, 0.95rem);
+  text-align: left;
+}

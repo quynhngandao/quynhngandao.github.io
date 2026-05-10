@@ -1,0 +1,83 @@
+---
+import '@/styles/photography.css';
+
+const totalPhotos = 86;
+const photos = Array.from({ length: totalPhotos }, (_, i) => {
+  const num = String(i + 1).padStart(3, '0');
+  return { src: `/assets/photograph/photo-${num}.jpg`, alt: `Photo ${i + 1}` };
+});
+---
+
+<section id="photography" class="sky-section-gradient relative px-4 py-24 md:px-6 md:py-28">
+  <div class="mx-auto w-full space-y-10">
+    <h2
+      class="text-italics text-center text-xl font-extrabold tracking-tight md:text-3xl"
+      style="color: #04285f"
+    >
+      Captured Through My Lens
+    </h2>
+
+    <div id="photo-grid" class="photo-masonry">
+      {
+        photos.map((photo, i) => (
+          <div class:list={['photo-item', i >= 20 && 'hidden']} data-photo-index={i}>
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              decoding="async"
+              class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <div id="load-more-wrap" class="flex justify-center">
+      <button
+        id="load-more-btn"
+        class="border-white/25 bg-white/10 hover:bg-white/20 rounded-full border px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5"
+      >
+        Load more
+      </button>
+    </div>
+  </div>
+
+  <a
+    href="#contact"
+    class="text-white/45 hover:text-white/80 absolute inset-x-0 bottom-8 flex animate-bounce justify-center transition-colors"
+    aria-label="Next section"
+  >
+    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+      ></path>
+    </svg>
+  </a>
+</section>
+
+
+<script>
+  const BATCH = 20;
+  let shown = 20;
+  const items = document.querySelectorAll<HTMLElement>('#photo-grid .photo-item');
+  const btn = document.getElementById('load-more-btn')!;
+  const wrap = document.getElementById('load-more-wrap')!;
+
+  function showMore() {
+    const next = Math.min(shown + BATCH, items.length);
+    for (let i = shown; i < next; i++) {
+      items[i].classList.remove('hidden');
+    }
+    shown = next;
+    if (shown >= items.length) {
+      wrap.classList.add('hidden');
+    }
+  }
+
+  btn.addEventListener('click', showMore);
+
+  // Hide button if ≤20 photos
+  if (items.length <= 20) {
+    wrap.classList.add('hidden');
+  }
+</script>

@@ -1,4 +1,6 @@
 ---
+import '@/styles/header.css';
+
 const navLinks = [
   { label: 'about me', href: '#about' },
   { label: 'portfolio', href: '#project' },
@@ -94,43 +96,6 @@ const navLinks = [
   </div>
 </header>
 
-<style>
-  .nav-logo {
-    font-size: clamp(1rem, 0.85rem + 0.6vw, 1.25rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  .nav-link {
-    font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-
-  .nav-link.active {
-    color: white;
-  }
-
-  .nav-link.active .nav-underline {
-    transform: scaleX(1);
-  }
-
-  .nav-contact {
-    font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
-    font-weight: 600;
-  }
-
-  /* Hamburger → X animation */
-  #menu-btn[aria-expanded='true'] .hamburger-bar:nth-child(1) {
-    transform: translateY(5.5px) rotate(45deg);
-  }
-  #menu-btn[aria-expanded='true'] .hamburger-bar:nth-child(2) {
-    opacity: 0;
-  }
-  #menu-btn[aria-expanded='true'] .hamburger-bar:nth-child(3) {
-    transform: translateY(-5.5px) rotate(-45deg);
-  }
-</style>
 
 <script>
   // Mobile menu toggle

@@ -1,9 +1,11 @@
 ---
+import '@/styles/footer.css';
 const year = new Date().getFullYear();
 ---
 
-<footer class="footer-container border-white/10 bg-sky-light/10 border-t px-6 py-8 text-white">
-  <section class="social-media mx-auto max-w-6xl">
+<footer class="footer-container px-6 py-8 text-white">
+  <img src="/assets/other/clouds.png" alt="" class="clouds-bg" aria-hidden="true" />
+  <section class="social-media relative z-10 mx-auto max-w-6xl">
     <div
       class="social-media-wrap flex flex-col gap-5 md:flex-row md:items-center md:justify-between"
     >
@@ -86,33 +88,3 @@ const year = new Date().getFullYear();
   </section>
 </footer>
 
-<style>
-  .social-icon-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 9999px;
-    border: 1px solid rgba(250, 251, 251, 0.18);
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(250, 251, 251, 0.88);
-    transition:
-      transform 180ms ease,
-      background-color 180ms ease,
-      color 180ms ease,
-      border-color 180ms ease;
-  }
-
-  .social-icon-link:hover {
-    transform: translateY(-2px);
-    border-color: rgba(250, 251, 251, 0.32);
-    background: rgba(255, 255, 255, 0.16);
-    color: white;
-  }
-
-  .website-rights {
-    font-size: clamp(0.8rem, 0.76rem + 0.15vw, 0.95rem);
-    text-align: left;
-  }
-</style>

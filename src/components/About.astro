@@ -1,61 +1,107 @@
 ---
-const skills = [
-  'TypeScript',
-  'React',
-  'Next.js',
-  'Astro',
-  'Node.js',
-  'PostgreSQL',
-  'Docker',
-  'Git',
-  'Python',
-  'REST APIs',
-  'CI/CD',
-  'AWS',
-];
+import '@/styles/animations.css';
 ---
 
-<section id="about" class="mx-auto max-w-5xl px-6 py-24">
-  <h2 class="mb-12 text-3xl font-bold text-gray-50">About me</h2>
+<section
+  id="about"
+  class="relative isolate overflow-hidden px-6 py-24 text-[var(--navy-deep)] md:px-10 md:py-28"
+>
+  <div
+    class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,248,214,0.25),_transparent_18%),linear-gradient(180deg,_var(--sky)_0%,_#6bbaf5_30%,_#82c6f8_60%,_var(--sky)_100%)]"
+  >
+  </div>
 
-  <div class="grid gap-12 md:grid-cols-2">
-    <div class="body-text space-y-4 leading-relaxed text-gray-400">
-      <p>
-        I'm a software engineer who loves crafting clean, performant products that delight users. I
-        care deeply about code quality, developer experience, and shipping things that matter.
-      </p>
-      <p>
-        When I'm not coding I enjoy hiking, reading, and exploring new coffee shops. I'm always
-        happy to chat about technology, design, or your next big idea.
-      </p>
-      <a
-        href="/resume.pdf"
-        class="text-brand-500 hover:text-brand-400 inline-flex items-center gap-2 text-sm transition-colors"
-      >
-        Download résumé
-        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-        </svg>
-      </a>
+  <div
+    class="relative mx-auto grid max-w-7xl items-stretch gap-6 lg:grid-cols-[1.03fr_1fr] lg:gap-6"
+  >
+    <div
+      class="slide-in-left border-white/35 bg-white/70 relative overflow-hidden rounded-[2rem] border p-8 shadow-[0_24px_70px_rgba(7,46,108,0.18)] backdrop-blur-md md:p-12 lg:rounded-l-[2.5rem] lg:rounded-r-[1rem]"
+    >
+      <div class="relative max-w-2xl space-y-8">
+        <a
+          href="https://www.linkedin.com/in/daoquynh29/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-block w-full text-center transition-transform duration-200 hover:-translate-y-0.5 focus-visible:-translate-y-0.5"
+        >
+          <h2
+            class="group-hover:text-[var(--navy-deep)]/70 group-focus-visible:text-[var(--navy-deep)]/70 text-center text-4xl font-extrabold tracking-tight text-[var(--navy-deep)] transition-colors duration-200 md:text-5xl"
+          >
+            About Me
+          </h2>
+        </a>
+
+        <div
+          class="body-text space-y-6 text-center leading-relaxed text-[var(--navy-ink)]"
+        >
+          <p>
+            I'm a University of Minnesota grad who began in pre-med before pivoting into tech for
+            its nonstop learning and problem-solving. My previous work—spanning healthcare (with
+            both animals and people), customer service, tutoring, and research—has given me a broad
+            skill set and perspective. As a full-stack developer, I've worked on solo and team
+            projects, aiming to leverage technology for positive impact.
+          </p>
+          <p>
+            Outside of coding, I love rock climbing, photography, traveling, and foodie adventures.
+            I'm also a longtime volunteer at the Animal Humane Society.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <h3 class="mb-4 text-sm font-semibold uppercase tracking-widest text-gray-500">
-        Technologies
-      </h3>
-      <ul class="flex flex-wrap gap-2">
-        {
-          skills.map((skill) => (
-            <li class="rounded-md border border-gray-800 bg-gray-900 px-3 py-1 font-mono text-xs text-gray-300">
-              {skill}
-            </li>
-          ))
-        }
-      </ul>
+    <div
+      class="slide-in-right border-white/60 bg-white/90 relative overflow-hidden rounded-[2rem] border p-5 shadow-[0_24px_70px_rgba(7,46,108,0.16)] lg:rounded-l-[1rem] lg:rounded-r-[2.5rem] lg:p-6"
+    >
+      <div
+        class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[var(--sky-frost)] to-transparent"
+      >
+      </div>
+      <div class="relative flex h-full flex-col gap-4 rounded-[1.5rem] bg-white p-4 md:p-5">
+        <div class="px-2">
+          <h3 class="text-center text-xl font-extrabold tracking-tight text-[var(--navy-deep)]">
+            Sr. Fluff
+          </h3>
+        </div>
+
+        <div
+          class="overflow-hidden rounded-[1.4rem] border border-[var(--sky-border)] bg-[var(--sky-wash)]"
+        >
+          <img
+            src="/assets/other/fluff.jpeg"
+            alt="A fluffy white bunny sitting in the grass"
+            class="h-full min-h-[320px] w-full object-cover object-center lg:min-h-[560px]"
+            loading="lazy"
+          />
+        </div>
+      </div>
     </div>
   </div>
+
+  <a
+    href="#project"
+    class="absolute bottom-8 flex animate-bounce justify-center text-[var(--navy-deep)] opacity-45 transition-all hover:opacity-80"
+    aria-label="Next section"
+  >
+    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+      ></path>
+    </svg>
+  </a>
 </section>
+
+
+<script>
+  const els = document.querySelectorAll('.slide-in-left, .slide-in-right');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  els.forEach((el) => observer.observe(el));
+</script>
