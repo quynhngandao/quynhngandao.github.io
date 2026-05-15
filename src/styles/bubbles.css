@@ -14,12 +14,24 @@
   scale: 0.6;
 }
 
-.bubble-1:hover { translate: -80px 60px; }
-.bubble-2:hover { translate: 70px -70px; }
-.bubble-3:hover { translate: -60px -80px; }
-.bubble-4:hover { translate: 90px 50px; }
-.bubble-5:hover { translate: -70px 75px; }
-.bubble-6:hover { translate: 65px -65px; }
+.bubble-1:hover {
+  translate: -80px 60px;
+}
+.bubble-2:hover {
+  translate: 70px -70px;
+}
+.bubble-3:hover {
+  translate: -60px -80px;
+}
+.bubble-4:hover {
+  translate: 90px 50px;
+}
+.bubble-5:hover {
+  translate: -70px 75px;
+}
+.bubble-6:hover {
+  translate: 65px -65px;
+}
 
 .bubble-1 {
   width: 28px;
@@ -71,46 +83,106 @@
 }
 
 @keyframes drift-1 {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(60px, -40px); }
-  50%  { transform: translate(-30px, 50px); }
-  75%  { transform: translate(40px, 20px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(60px, -40px);
+  }
+  50% {
+    transform: translate(-30px, 50px);
+  }
+  75% {
+    transform: translate(40px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 @keyframes drift-2 {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(-50px, 30px); }
-  50%  { transform: translate(40px, -60px); }
-  75%  { transform: translate(-20px, -30px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-50px, 30px);
+  }
+  50% {
+    transform: translate(40px, -60px);
+  }
+  75% {
+    transform: translate(-20px, -30px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 @keyframes drift-3 {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(70px, 40px); }
-  50%  { transform: translate(-60px, -20px); }
-  75%  { transform: translate(30px, -50px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(70px, 40px);
+  }
+  50% {
+    transform: translate(-60px, -20px);
+  }
+  75% {
+    transform: translate(30px, -50px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 @keyframes drift-4 {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(-40px, -50px); }
-  50%  { transform: translate(50px, 30px); }
-  75%  { transform: translate(-60px, 40px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-40px, -50px);
+  }
+  50% {
+    transform: translate(50px, 30px);
+  }
+  75% {
+    transform: translate(-60px, 40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 @keyframes drift-5 {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(30px, 60px); }
-  50%  { transform: translate(-50px, -30px); }
-  75%  { transform: translate(20px, -40px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30px, 60px);
+  }
+  50% {
+    transform: translate(-50px, -30px);
+  }
+  75% {
+    transform: translate(20px, -40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 @keyframes drift-6 {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(-35px, 45px); }
-  50%  { transform: translate(55px, -25px); }
-  75%  { transform: translate(-45px, -35px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-35px, 45px);
+  }
+  50% {
+    transform: translate(55px, -25px);
+  }
+  75% {
+    transform: translate(-45px, -35px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

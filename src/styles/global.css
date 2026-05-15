@@ -54,7 +54,7 @@
     --brown: #4f3122;
 
     /* ── Accent ──────────────────────────────── */
-    --bubble: #FEE9A8;
+    --bubble: #fee9a8;
   }
 }
 
@@ -102,6 +102,7 @@
     top: 50%;
     transform: translate(-50%, -60%);
     color: var(--white);
+    animation: slide-from-right 1s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .hero-bg-name-desktop {
@@ -125,6 +126,7 @@
   .hero-greeting {
     position: absolute;
     z-index: 25;
+    animation: slide-from-tl 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .hero-greeting-desktop {
@@ -165,6 +167,7 @@
     right: 8%;
     z-index: 25;
     text-align: right;
+    animation: slide-from-br 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .hero-role-wrap-desktop {
@@ -244,5 +247,38 @@
 
   .hero-role-wrap-mobile {
     display: none;
+  }
+}
+
+@keyframes slide-from-tl {
+  from {
+    opacity: 0;
+    translate: -60px -60px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes slide-from-br {
+  from {
+    opacity: 0;
+    translate: 60px 60px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    opacity: 0;
+    translate: 200px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
   }
 }
