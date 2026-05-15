@@ -11,7 +11,11 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "compress-photos": "node scripts/compress-photos.mjs",
-    "prepare": "husky"
+    "prepare": "husky",
+    "deploy": "git push origin main",
+    "deploy:force": "git commit --allow-empty -m 'redeploy' && git push origin main",
+    "deploy:status": "gh run list --limit 5",
+    "deploy:watch": "gh run watch"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
