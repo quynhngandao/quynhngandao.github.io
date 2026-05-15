@@ -13,7 +13,7 @@
     "compress-photos": "node scripts/compress-photos.mjs",
     "prepare": "husky",
     "deploy": "git push origin main",
-    "publish": "pnpm build && git push origin main",
+    "ship": "pnpm build && git push origin main",
     "deploy:force": "git commit --allow-empty -m 'redeploy' && git push origin main",
     "deploy:status": "gh run list --limit 5",
     "deploy:watch": "gh run watch"
